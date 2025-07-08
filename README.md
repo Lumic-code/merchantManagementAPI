@@ -33,10 +33,11 @@ This is a sample **Merchant Management API** built with:
 ---
 
 ## 📂 Project Structure
-MerchantManagement.API/ → Minimal API Endpoints
-MerchantManagement.App/ → Application Logic (CQRS, Commands, Queries)
-MerchantManagement.Infrastructure/ → Data Access (EF Core)
-MerchantManagement.Tests/ → Integration & Unit Tests
+
+- `MerchantManagement.API/` → Minimal API Endpoints  
+- `MerchantManagement.App/` → Application Logic (CQRS, Commands, Queries)  
+- `MerchantManagement.Infrastructure/` → Data Access (EF Core)  
+- `MerchantManagement.Tests/` → Integration & Unit Tests 
 
 ---
 
@@ -68,17 +69,23 @@ MerchantManagement.Tests/ → Integration & Unit Tests
   "status": "Active",
   "country": "Nigeria"
 }
-🚀 Running Locally
+```
+---
+## 🚀 Running Locally
+```bash
 dotnet build
 dotnet run --project MerchantManagement.API
-
-🧪 Running Tests
+```
+---
+## 🧪 Running Tests
+```bash
 dotnet test
+```
 
-📝 Notes
-Easily extensible for production databases.
-Example of external API integration in clean .NET architecture.
+---
+## 📝 Notes
+- Example of external API integration in clean .NET architecture.
 
-
-📃 License
+---
+## 📃 License
 MIT — free to use and modify.
