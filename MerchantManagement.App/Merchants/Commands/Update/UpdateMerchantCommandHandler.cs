@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using MerchantManagement.Domain.Entities;
 using MerchantManagement.Infra;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,16 @@ namespace MerchantManagement.App.Merchants.Commands.Update
         public async Task<Unit> Handle(UpdateMerchantCommand request, CancellationToken cancellationToken)
         {
             var merchant = await _context.Merchants.FindAsync(new object[] { request.Id }, cancellationToken);
-            if (merchant == null) return Unit.Value;
+
+            if (merchant == null)
+            {
+                throw new KeyNotFoundException("Merchant not found.");
+            }
 
             merchant.BusinessName = request.BusinessName;
             merchant.Email = request.Email;
             merchant.PhoneNumber = request.PhoneNumber;
-            merchant.Status = request.Status;
+            merchant.Status = Enum.Parse<MerchantStatus>(request.Status, true);
             merchant.Country = request.Country;
 
             await _context.SaveChangesAsync(cancellationToken);

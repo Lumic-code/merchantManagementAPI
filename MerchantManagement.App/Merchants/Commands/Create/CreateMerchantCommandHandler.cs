@@ -1,15 +1,11 @@
 ﻿using MediatR;
+using MerchantManagement.App.Merchants.DTOs;
 using MerchantManagement.Domain.Entities;
 using MerchantManagement.Infra;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MerchantManagement.App.Merchants.Commands.Create
 {
-    public class CreateMerchantCommandHandler : IRequestHandler<CreateMerchantCommand, Merchant>
+    public class CreateMerchantCommandHandler : IRequestHandler<CreateMerchantCommand, MerchantDto>
     {
 
         private readonly AppDbContext _context;
@@ -19,22 +15,33 @@ namespace MerchantManagement.App.Merchants.Commands.Create
             _context = context;
         }
 
-        public async Task<Merchant> Handle(CreateMerchantCommand request, CancellationToken cancellationToken)
+        public async Task<MerchantDto> Handle(CreateMerchantCommand request, CancellationToken cancellationToken)
         {
+       
             var merchant = new Merchant
             {
                 Id = Guid.NewGuid(),
                 BusinessName = request.BusinessName,
                 Email = request.Email,
                 PhoneNumber = request.PhoneNumber,
-                Status = request.Status,
+                Status = Enum.Parse<MerchantStatus>(request.Status, true),
                 Country = request.Country,
                 CreatedAt = DateTime.UtcNow
             };
 
             _context.Merchants.Add(merchant);
             await _context.SaveChangesAsync(cancellationToken);
-            return merchant;
+
+            return new MerchantDto
+            {
+                Id = merchant.Id,
+                BusinessName = merchant.BusinessName,
+                Email = merchant.Email,
+                PhoneNumber = merchant.PhoneNumber,
+                Status = merchant.Status.ToString(),
+                Country = merchant.Country,
+                CreatedAt = merchant.CreatedAt
+            };
         }
     }
 }

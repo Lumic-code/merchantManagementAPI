@@ -13,7 +13,7 @@ namespace MerchantManagement.App.Merchants.Commands.Update
             public string BusinessName { get; set; } = string.Empty;
             public string Email { get; set; } = string.Empty;
             public string PhoneNumber { get; set; } = string.Empty;
-            public string Status { get; set; } = "Pending";
+            public string Status { get; set; } = string.Empty;
             public string Country { get; set; } = string.Empty;
     }
 }

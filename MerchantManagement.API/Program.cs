@@ -1,22 +1,14 @@
-using FluentValidation;
 using MerchantManagement.API.Endpoints;
-using MerchantManagement.App.Merchants.Commands.Create;
-using MerchantManagement.App.Merchants.Validators;
-using MerchantManagement.Infra;
-using Microsoft.EntityFrameworkCore;
+using MerchantManagement.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("MerchantDb"));
-builder.Services.AddMediatR(config =>
-{
-    config.RegisterServicesFromAssemblyContaining<CreateMerchantCommandHandler>();
-});
-
-builder.Services.AddValidatorsFromAssemblyContaining<CreateMerchantCommandValidator>();
+builder.Services.AddApplicationServices();
+builder.Services.AddPersistence();
 builder.Services.AddHttpClient();
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -31,6 +23,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        context.Response.StatusCode = 500;
+        await context.Response.WriteAsJsonAsync(new { error = "An unexpected error occurred." });
+    });
+});
 app.MapMerchantEndpoints();
 
 app.UseHttpsRedirection();

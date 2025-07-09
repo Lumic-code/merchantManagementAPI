@@ -1,9 +1,6 @@
-﻿using MediatR;
-using MerchantManagement.App.Merchants.DTOs;
-
-namespace MerchantManagement.App.Merchants.Commands.Create
+﻿namespace MerchantManagement.API.Requests
 {
-    public class CreateMerchantCommand : IRequest<MerchantDto>
+    public class UpdateMerchantRequest
     {
         public string BusinessName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;

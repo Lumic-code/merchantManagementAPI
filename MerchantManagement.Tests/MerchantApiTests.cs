@@ -105,7 +105,7 @@ namespace MerchantManagement.Tests
                 BusinessName = "",
                 Email = "invalid-email",
                 PhoneNumber = "",
-                Status = "Active",
+                Status = "UnknownStatus",
                 Country = "Nigeria"
             };
 

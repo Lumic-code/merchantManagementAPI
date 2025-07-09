@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantManagement.API", "MerchantManagement.API\MerchantManagement.API.csproj", "{E5C64206-9321-447A-AE9B-FA632CC41DF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchantManagement.API", "MerchantManagement.API\MerchantManagement.API.csproj", "{E5C64206-9321-447A-AE9B-FA632CC41DF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantManagement.App", "MerchantManagement.App\MerchantManagement.App.csproj", "{D1BA7A5E-DA2F-497C-A2DD-423A8A227BB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchantManagement.App", "MerchantManagement.App\MerchantManagement.App.csproj", "{D1BA7A5E-DA2F-497C-A2DD-423A8A227BB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantManagement.Domain", "MerchantManagement.Domain\MerchantManagement.Domain.csproj", "{8A3465CB-5F6F-49E5-8445-7028BCCEF250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchantManagement.Domain", "MerchantManagement.Domain\MerchantManagement.Domain.csproj", "{8A3465CB-5F6F-49E5-8445-7028BCCEF250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantManagement.Infra", "MerchantManagement.Infra\MerchantManagement.Infra.csproj", "{10053D47-A414-4822-AF60-8765FEB0AC3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchantManagement.Infra", "MerchantManagement.Infra\MerchantManagement.Infra.csproj", "{10053D47-A414-4822-AF60-8765FEB0AC3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantManagement.Tests", "MerchantManagement.Tests\MerchantManagement.Tests.csproj", "{14581B5C-FEBB-4BEC-AE5B-FA2B4F921021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchantManagement.Tests", "MerchantManagement.Tests\MerchantManagement.Tests.csproj", "{14581B5C-FEBB-4BEC-AE5B-FA2B4F921021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

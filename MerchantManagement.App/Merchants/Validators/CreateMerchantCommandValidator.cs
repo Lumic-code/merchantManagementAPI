@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MerchantManagement.App.Merchants.Commands.Create;
+using MerchantManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,13 @@ namespace MerchantManagement.App.Merchants.Validators
                 .NotEmpty().WithMessage("Phone Number is required.");
 
             RuleFor(x => x.Status)
-                .Must(status => new[] { "Pending", "Active", "Inactive" }.Contains(status))
-                .WithMessage("Invalid status. Allowed values: Pending, Active, Inactive.");
+             .Must(status => Enum.TryParse<MerchantStatus>(status, true, out _))
+             .WithMessage("Invalid status. Allowed values: Pending, Active, Inactive.");
 
             RuleFor(x => x.Country)
                 .NotEmpty().WithMessage("Country is required.");
+
+
         }
     }
 }
